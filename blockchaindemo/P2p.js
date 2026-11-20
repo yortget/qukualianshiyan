@@ -18,10 +18,19 @@ class PeerToPeer {
     }
     // 启动服务器监听指定端口
     startServer(port) {
+        if (this.server) {
+            console.log(`P2P server is already running on port ${this.serverPort}`);
+            return;
+        }
         this.serverPort = port; // 保存本节点的监听端口
         const server = net.createServer((socket) => {
             this.initConnection(socket); // 初始化新连接
-        }).listen(port); // 监听指定端口
+        });
+        server.on('error', (err) => {
+            console.error(`P2P server error on port ${port}: ${err.message}`);
+        });
+        server.listen(port); // 监听指定端口
+        this.server = server;
         console.log(`Server started on port ${port}`);
     }
     // 发现对等节点功能（当前版本未实现）

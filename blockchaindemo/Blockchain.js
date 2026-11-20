@@ -6,7 +6,7 @@ const crypto = require('crypto');
 class Blockchain {
     // 初始化一个新的区块链
     constructor() {
-        this.blockchain = [Block.genesis()]; // 初始化区块链的第一个->块
+        this.blockchain = [Block.genesis]; // 初始化区块链的第一个->块
         this.difficulty = 3; // 挖矿难度
     }
 
@@ -116,7 +116,7 @@ class Blockchain {
 
     // 验证整条区块链是否合法且有效
     isValidChain(chain) {
-        if (JSON.stringify(chain[0]) !== JSON.stringify(Block.genesis())) {
+        if (JSON.stringify(chain[0]) !== JSON.stringify(Block.genesis)) {
             return false;
         }
         const tempChain = [chain[0]];

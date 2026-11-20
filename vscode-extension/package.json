@@ -1,0 +1,30 @@
+{
+  "name": "chainscope-terminal-bridge",
+  "displayName": "ChainScope Terminal Bridge",
+  "description": "Create the two blockchain CLI terminals from the ChainScope frontend.",
+  "version": "0.1.4",
+  "publisher": "chainscope-local",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "onCommand:chainscope.startTerminals"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "chainscope.startTerminals",
+        "title": "ChainScope: 启动双节点终端"
+      }
+    ]
+  },
+  "scripts": {
+    "test": "node test/control-server.test.js"
+  }
+}

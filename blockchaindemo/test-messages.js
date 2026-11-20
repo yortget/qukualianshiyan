@@ -1,4 +1,4 @@
-const messageType = require("./message-type");
+const messageType = require("./messages-type.js");
 const Messages = require("./messages.js");
 const Block = require("./Block.js");
 
